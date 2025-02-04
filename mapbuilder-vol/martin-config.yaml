@@ -1,0 +1,22 @@
+pmtiles:
+  paths:
+  - /mapbuilder/shared/pmtiles
+postgres:
+  connection_string: postgresql://postgres:password@db/mapbuilder
+  auto_publish: false
+  default_srid: 4326
+  tables: {
+    }
+  functions:
+    sources:
+      schema: public
+      function: get_source_mvt
+      minzoom: 0
+      maxzoom: 20
+fonts:
+  - /mapbuilder/shared/fonts/1
+  - /mapbuilder/shared/fonts/2
+  - /mapbuilder/shared/fonts/3
+sprites:
+  paths:
+    - /mapbuilder/shared/sprites/qwant

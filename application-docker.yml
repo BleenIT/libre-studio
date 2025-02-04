@@ -1,0 +1,16 @@
+# This will be used by the docker instance, override if needed
+
+external:
+  backend-url: ${BACKEND_EXTERNAL_URL}
+
+sprites:
+  base-path: /mapbuilder/shared/sprites/
+
+fonts:
+  base-path: /mapbuilder/shared/fonts/
+
+pmtiles:
+  base-path: /mapbuilder/shared/pmtiles/
+
+martin:
+  base-url: ${MARTIN_EXTERNAL_URL}

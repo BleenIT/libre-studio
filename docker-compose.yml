@@ -1,0 +1,49 @@
+services:
+  db:
+    image: postgis/postgis:16-3.5-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=mapbuilder
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+      - ./pg_data:/var/lib/postgresql/data
+    ports:
+      - "54320:5432"
+
+  martin:
+    image: bleenit/mapbuilder-martin:0.1
+    restart: unless-stopped
+    ports:
+      - "30000:3000"
+    volumes:
+      - ./mapbuilder-vol:/mapbuilder/shared
+    depends_on:
+      - db
+
+  backend:
+    image: bleenit/mapbuilder-be:0.1
+    environment:
+      - BACKEND_EXTERNAL_URL=${BACKEND_URL:-http://localhost:8181/api}
+      - MARTIN_EXTERNAL_URL=${MARTIN_URL:-http://localhost:30000}
+    restart: unless-stopped
+    ports:
+      - "8181:8080"
+    volumes:
+      - ./mapbuilder-vol:/mapbuilder/shared
+      - ./application-docker.yml:/mapbuilder/application.yml
+    depends_on:
+      - db
+
+  frontend:
+    image: bleenit/mapbuilder-fe:0.1
+    environment:
+      - VITE_BACKEND_URL=${BACKEND_URL:-http://localhost:8181/api/}
+    restart: unless-stopped
+    ports:
+      - "8081:5173"
+    depends_on:
+      - backend
+      - martin
+    command: npm run dev -- --host
