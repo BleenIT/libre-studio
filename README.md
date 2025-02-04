@@ -1,4 +1,4 @@
-This project consists on a management source for [Maplibre Martin](https://martin.maplibre.org/), allowing the management of map sources, sprites and font glyphs, all stored in the filesystem and on a Postgresql database.
+This project consists on a management layer for [Maplibre Martin](https://martin.maplibre.org/), allowing the management of map sources, sprites and font glyphs, all stored in the filesystem and on a Postgresql database.
 
 The frontend is built using ReactJS, Vite, and Bootstrap.
 
