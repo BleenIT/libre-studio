@@ -96,3 +96,7 @@ This project uses [tilemaker](https://github.com/systemed/tilemaker) to generate
 - Map sources visual editor
 - Pagination on frontend
 - Authentication
+
+\
+\
+Developed by [BleenIT](https://www.bleen.pt/)
