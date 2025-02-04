@@ -9,7 +9,7 @@ The backend is a Spring Boot application.
 ## Features
 
 - Visual frontend for managing [Maplibre Martin](https://martin.maplibre.org/) sources 
-- Real-time styles editor, with error validation and feature inspection
+- Real-time styles editor, with error validation, feature inspection, and raw JSON editor
 - Support importing sources in GeoJSON, Geopackage, KML and SHP
 - Provides a ready-to-use, custom maps infrastructure for any project
 - Includes 3 sample styles:
@@ -55,6 +55,8 @@ After providing a base map tiles (using the instructions below) running the dock
 
 - The frontend is not production ready, currently used for testing purposes.
 
+- The backend has no authentication, only expose the public styles endpoint (`/styles/{id}/raw`), and Martin ones. 
+
 ## Creating vector tiles from OSM PBFs
 
 To generate the vector tiles (pmtile file) from the Open Street Maps PBF files, you will need 
@@ -91,4 +93,6 @@ This project uses [tilemaker](https://github.com/systemed/tilemaker) to generate
 - Need to create different postgres table sources on martin config, similar to how the sprites are being done;
 - Support feature properties on sources (WIP);
 - Support duplicate fonts on Martin (if Martin detects a duplicate font, it will shutdown)
+- Map sources visual editor
 - Pagination on frontend
+- Authentication
