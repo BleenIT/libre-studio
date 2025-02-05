@@ -66,7 +66,7 @@ and a PBF file for the region:
 
 1. Download the map region you need from [OSM Geofabrik extracts](https://download.geofabrik.de/).
     - `Note: start with a small region, as this process can take a lot of time (hours) with bigger regions.`
-2. Alternatively, you can use our provided scripts that perform some optimizations on the generated pmtiles file. For that you will need to download the files:
+2. You can use our provided scripts that perform some optimizations on the generated pmtiles file. For that you will need to download the files:
      - [Urban areas](https://naciscdn.org/naturalearth/10m/cultural/ne_10m_urban_areas.zip)
      - [OSM Water polygons](https://osmdata.openstreetmap.de/download/water-polygons-split-4326.zip)
 3. Put them in the `./data` folder and unzip them:
